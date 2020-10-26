@@ -1,6 +1,6 @@
 package CabInvoiceGenerator;
 
-public class CabInvoiceGenerator {
+public class CabInvoiceService {
 	private static final double MINIMUM_COST_PER_KM = 10;
 	private static final int MIN_COST_PER_TIME = 1;
 	private static final double MIN_TOTAL_FARE = 5;
