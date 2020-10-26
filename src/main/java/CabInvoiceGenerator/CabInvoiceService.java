@@ -9,12 +9,12 @@ public class CabInvoiceService {
 		double totalFare = (distance * MINIMUM_COST_PER_KM) + (time * MIN_COST_PER_TIME);
 		return Math.max(totalFare, MIN_TOTAL_FARE);
 	}
-
-	public double calculateFare(Ride[] rides) {
+	
+	public InvoiceSummary calculateFare(Ride[] rides) {
 		double totalFare = 0;
 		for (Ride ride : rides) {
 			totalFare = totalFare + calculateFare(ride.getDistance(), ride.getTime());
 		};
-		return totalFare;
+		return new InvoiceSummary(rides.length, totalFare);
 	}
 }
