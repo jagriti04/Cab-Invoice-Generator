@@ -16,8 +16,8 @@ public class InvoiceServiceTest {
 		rideRepository = new RideRepository();
 		invoiceService.setRideRepository(rideRepository);
 		rides = new Ride[] {
-				new Ride(Ride.Normal, 2.0, 5),
-				new Ride(Ride.PREMIUM, 0.1, 1)
+				new Ride(CabRide.NORMAL, 2.0, 5),
+				new Ride(CabRide.PREMIUM, 0.1, 1)
 		};
 		expectedSummary = new InvoiceSummary(2, 45);
 	}
@@ -40,8 +40,7 @@ public class InvoiceServiceTest {
 	
 	@Test
 	public void givenMultipleRides_shouldReturnInvoiceSummary() {
-		Ride[] ride = { new Ride(2.0, 5), new Ride(0.1, 1) };
-		InvoiceSummary summary = invoiceService.calculateFare(ride);
+		InvoiceSummary summary = invoiceService.calculateFare(rides);
 		InvoiceSummary expectedSummary =  new InvoiceSummary(2, 30.0);
 		Assert.assertEquals(expectedSummary, summary);
 	}
