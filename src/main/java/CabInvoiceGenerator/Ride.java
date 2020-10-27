@@ -3,10 +3,12 @@ package CabInvoiceGenerator;
 public class Ride {
 	private double distance;
 	private int time;
+	public final CabRide cabRide;
 	
-	public Ride(double distance, int time) {
+	public Ride(CabRide cabRide, double distance, int time) {
 		this.distance = distance;
 		this.time = time;
+		this.cabRide = cabRide;
 	}
 
 	public double getDistance() {

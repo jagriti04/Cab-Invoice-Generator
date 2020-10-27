@@ -23,12 +23,17 @@ public class CabInvoiceService {
 		;
 		return new InvoiceSummary(rides.length, totalFare);
 	}
-	
+
 	public void addRides(String userId, Ride[] rides) {
-		rideRepository.addRides(userId, rides);;
+		rideRepository.addRides(userId, rides);
+		;
 	}
-	
+
 	public InvoiceSummary getInvoiceSummary(String userId) {
 		return this.calculateFare(rideRepository.getRides(userId));
+	}
+
+	public void setRideRepository(RideRepository rideRepository) {
+		this.rideRepository = rideRepository;
 	}
 }
